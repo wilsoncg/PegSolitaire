@@ -36,3 +36,13 @@ Contains solution: True
 [[BBBERBRRR]->[BBBBRERRR]]
 [[BBBBRERRR]->[BBBBERRRR]]
 ```
+
+#### Solution
+![Solution](solution.png)
+
+#### All 195 moves
+![All 195 moves](allmoves.png)
+
+### Graphviz
+https://www.graphviz.org/doc/info/attrs.html
+
