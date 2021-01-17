@@ -29,10 +29,22 @@ namespace TestApp
             var shortestPath = solver.FindShortestPath(graph);
             PrintPath(shortestPath);
 
-            var graphviz = new GraphvizAlgorithm<PegBoard, Edge<PegBoard>>(graph);
+            var shortestPathGraph = solver.GraphFromList(shortestPath);
+            var graphviz = new GraphvizAlgorithm<PegBoard, Edge<PegBoard>>(shortestPathGraph);
+            graphviz.FormatEdge += (sender, eventArgs) =>
+            {
+                if (shortestPath.Contains(eventArgs.Edge))
+                {
+                    eventArgs.EdgeFormatter.Style = GraphvizEdgeStyle.Bold;
+                }
+            };
             graphviz.FormatVertex += (sender, eventArgs) =>
             {
-                eventArgs.VertexFormatter.Label = eventArgs.Vertex.ToString();
+                eventArgs.VertexFormatter.Label = 
+                    eventArgs.Vertex.ToString()
+                        .Replace("R", "🔴")
+                        .Replace("B", "🔵")
+                        .Replace("E", "⚫");
             };
             graphviz.Generate(new FileDotEngine(), "graph.dot");
             Console.WriteLine();

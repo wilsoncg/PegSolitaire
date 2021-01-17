@@ -20,7 +20,7 @@ namespace PegSolitaire
             _targetState = targetState;
         }
 
-        public BidirectionalGraph<PegBoard, Edge<PegBoard>>  GenerateGraph()
+        public BidirectionalGraph<PegBoard, Edge<PegBoard>> GenerateGraph()
         {
             var directedGraph = new BidirectionalGraph<PegBoard, Edge<PegBoard>>();
             var pegBoardStates = new Queue<PegBoard>();
@@ -59,6 +59,17 @@ namespace PegSolitaire
             }
 
             return directedGraph;
+        }
+
+        public BidirectionalGraph<PegBoard, Edge<PegBoard>> GraphFromList(List<Edge<PegBoard>> list)
+        {
+            var graph = new BidirectionalGraph<PegBoard, Edge<PegBoard>>();
+
+            foreach(var edge in list)
+            {
+                graph.AddVerticesAndEdge(edge);
+            }
+            return graph;
         }
 
         public bool ContainsSolution(BidirectionalGraph<PegBoard, Edge<PegBoard>> graph)
