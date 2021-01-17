@@ -75,16 +75,8 @@ namespace PegSolitaire
             {
                 dfs.Compute();
             }
-
-            //dfs.TreeEdge += TreeEdge;
-            //dfs.Compute(graph.Vertices.First());
             return observer.VertexPredecessors;
         }
-
-        //private void TreeEdge(Edge<PegBoard> edge)
-        //{
-        //    _vertexPredecessors.Add(edge.Target, edge);
-        //}
 
         public List<Edge<PegBoard>> FindShortestPath(BidirectionalGraph<PegBoard, Edge<PegBoard>> graph)
         {
@@ -114,38 +106,7 @@ namespace PegSolitaire
 
         public List<Edge<PegBoard>> FindAllPaths(BidirectionalGraph<PegBoard, Edge<PegBoard>> graph)
         {
-            //return graph.TreeDepthFirstSearch(_initialState);
             return new List<Edge<PegBoard>>();
         }
-
-        //public PegBoard CreateTargetState()
-        //{
-        //    return new PegBoard(
-        //        new Peg(PegState.Red),
-        //        new Peg(PegState.Red),
-        //        new Peg(PegState.Red),
-        //        new Peg(PegState.Red),
-        //        new Peg(PegState.Blue),
-        //        new Peg(PegState.Blue),
-        //        new Peg(PegState.Empty),
-        //        new Peg(PegState.Empty),
-        //        new Peg(PegState.Blue),
-        //        new Peg(PegState.Blue));
-        //}
-
-        //public PegBoard CreateTargetState()
-        //{
-        //    return new PegBoard(
-        //        new Peg(PegState.Blue),
-        //        new Peg(PegState.Blue),
-        //        new Peg(PegState.Blue),
-        //        new Peg(PegState.Blue),
-        //        new Peg(PegState.Empty),
-        //        new Peg(PegState.Empty),
-        //        new Peg(PegState.Red),
-        //        new Peg(PegState.Red),
-        //        new Peg(PegState.Red),
-        //        new Peg(PegState.Red));
-        //}
     }
 }
